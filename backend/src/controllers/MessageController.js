@@ -10,11 +10,9 @@ module.exports = {
   async store(req, res) {
     const { user, message } = req.body;
 
-    const createdMessage = await Message.create({
+    await Message.create({
       user,
       message,
     });
-
-    return res.json(createdMessage);
   },
 };
