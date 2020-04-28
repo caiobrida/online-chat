@@ -2,7 +2,7 @@ import React from "react";
 
 import Message from "./Message";
 
-export default function MessagesList({ messages }) {
+export default function MessagesList({ messages, currentUser }) {
   return (
     <>
       {messages.map((msg, i) => (
@@ -11,6 +11,7 @@ export default function MessagesList({ messages }) {
           user={msg.user}
           date={msg.createdAt || Date.now()}
           message={msg.message}
+          currentUser={currentUser}
         />
       ))}
     </>

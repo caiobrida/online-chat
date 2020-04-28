@@ -20,11 +20,17 @@ function getParsedDate(date) {
   };
 }
 
-export default function Message({ date, user, message }) {
+const currentUserStyle = {
+  color: "#0f0",
+};
+
+export default function Message({ date, user, message, currentUser }) {
   const { date: msgDate, hours: msgHours } = getParsedDate(new Date(date));
   return (
     <p>
-      <span>{`${msgDate} - ${user} - ${msgHours} => `}</span>
+      <span
+        style={currentUser.name === user ? currentUserStyle : null}
+      >{`${msgDate} - ${user} - ${msgHours} => `}</span>
       {message}
     </p>
   );
