@@ -51,7 +51,7 @@ section #chat #messagesArea {
 #sendMessagesArea {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: flex-start;
   margin-left: 40px;
   margin-top: 10px;
