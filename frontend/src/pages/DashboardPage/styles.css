@@ -66,6 +66,8 @@ section #chat #messagesArea {
   padding: 5px;
   margin-bottom: 30px;
   text-align: center;
+  font-size: 21px;
+  color: #fff;
 }
 
 #sendMessagesArea button {

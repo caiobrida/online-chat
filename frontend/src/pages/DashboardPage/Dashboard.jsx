@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import io from "socket.io-client";
+import { useHistory } from "react-router-dom";
 
 import {
   loadMessages,
@@ -21,6 +22,7 @@ export default function Dashboard() {
   const messages = useSelector((state) => state.entities.messages.list);
   const user = useSelector((state) => state.entities.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [message, setMessage] = useState("");
 
@@ -31,6 +33,7 @@ export default function Dashboard() {
   }, []);
 
   useEffect(() => {
+    if (!user.name) return history.push("/login");
     dispatch(loadMessages());
   }, []);
 
