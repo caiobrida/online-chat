@@ -64,6 +64,7 @@ export default function Dashboard() {
                 {
                   user: user.name,
                   message,
+                  createdAt: Date.now(),
                 },
                 socket
               )

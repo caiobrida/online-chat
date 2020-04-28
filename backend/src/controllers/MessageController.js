@@ -8,11 +8,12 @@ module.exports = {
   },
 
   async store(req, res) {
-    const { user, message } = req.body;
+    const { user, message, createdAt } = req.body;
 
     await Message.create({
       user,
       message,
+      createdAt,
     });
   },
 };
