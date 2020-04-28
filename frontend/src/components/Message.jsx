@@ -10,7 +10,9 @@ function getParsedDate(date) {
   let year = date.getFullYear();
 
   let hour = date.getHours();
+
   let minutes = date.getMinutes();
+  if (minutes < 10) minutes = `0${minutes}`;
 
   return {
     date: `${day}/${month}/${year}`,

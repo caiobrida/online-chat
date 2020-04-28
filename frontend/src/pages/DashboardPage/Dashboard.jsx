@@ -30,12 +30,12 @@ export default function Dashboard() {
     socket.on("messageReceived", (data) => {
       dispatch(addMessageToArray(data));
     });
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (!user.name) return history.push("/login");
     dispatch(loadMessages());
-  }, []);
+  }, [dispatch, history, user.name]);
 
   function handleClick(msg, socket) {
     dispatch(addMessageToArray(msg));
