@@ -16,4 +16,15 @@ module.exports = {
       createdAt,
     });
   },
+
+  async destroy(req, res) {
+    const { messageId } = req.params;
+
+    const message = await Message.findById(messageId);
+
+    if (!message) return res.status(400).json({ message: "Message not found" });
+
+    await message.remove();
+    return res.json({ message: "Success" });
+  },
 };
