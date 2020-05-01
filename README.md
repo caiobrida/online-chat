@@ -1,2 +1,2 @@
 # online-chat
-Online chat with ReactJS and NodeJS
+Real time online chat with ReactJS and NodeJS
