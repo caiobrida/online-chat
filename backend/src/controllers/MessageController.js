@@ -15,6 +15,8 @@ module.exports = {
       message,
       createdAt,
     });
+
+    return res.json({ message: "Success" });
   },
 
   async destroy(req, res) {

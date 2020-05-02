@@ -35,8 +35,8 @@ export const addMessage = (message) =>
     url,
     method: "post",
     data: message,
-    onSuccess: messageAdded.type,
   });
 
-export const addMessageToArray = (message) => (dispatch) =>
-  dispatch(messageAdded(message));
+export const addMessageToArray = (message) => (dispatch) => {
+  return dispatch(messageAdded(message));
+};
