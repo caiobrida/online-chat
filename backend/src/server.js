@@ -20,9 +20,7 @@ app.use(express.json());
 app.use(routes);
 
 io.on("connection", (socket) => {
-  console.log("socket: ", socket.id);
   socket.on("messageSend", (data) => {
-    console.log(data);
     socket.broadcast.emit("messageReceived", data);
   });
 });
