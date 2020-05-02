@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import io from "socket.io-client";
 
 import {
@@ -15,22 +16,30 @@ import MessagesList from "../../components/MessagesList";
 
 import "./styles.css";
 
-const socket = io("http://localhost:3333");
+let socket;
 
 export default function Dashboard() {
   const messages = useSelector((state) => state.entities.messages.list);
   const user = useSelector((state) => state.entities.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [message, setMessage] = useState("");
 
   useEffect(() => {
+    socket = io("http://localhost:3333");
+
     socket.on("messageReceived", (data) => {
       dispatch(addMessageToArray(data));
     });
+
+    return function clean() {
+      socket.disconnect();
+    };
   }, []);
 
   useEffect(() => {
+    if (!user.name) history.push("/login");
     dispatch(loadMessages());
   }, []);
 
