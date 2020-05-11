@@ -18,7 +18,7 @@ userSchema.methods.generateAuthToken = function () {
       _id: this._id,
       username: this.username,
     },
-    process.env.JWT_PRIVATE_KEY
+    "123456789"
   );
 
   return token;
